@@ -9,6 +9,12 @@ requires using the proprietary rosjava build tools
 - The framework uses a master node, which does not scale well
 - It's based on webservices "under the hood"
 
+## Requirements
+- JVM Based
+- Publish/Subscribe capabilities
+- Cluster must be able to automatically form
+- Automatic service discovery
+
 ## with all that in mind..
 
  This project will attempt to build a JVM centric Robotics RPC framework
@@ -16,3 +22,5 @@ requires using the proprietary rosjava build tools
  asynchronous distributed systems on the JVM.  Not only is Akka VERY efficient ,
   but it also leads it's users towards message based design patterns,
   which are much more likely to be functional and immutable
+
+

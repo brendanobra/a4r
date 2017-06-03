@@ -6,7 +6,10 @@ scalaVersion := "2.12.2"
 
 lazy val akkaVersion = "2.5.2"
 
+mainClass := Some("com.a4r.Main")
+
 libraryDependencies ++= Seq(
+  "com.github.scopt" %% "scopt" % "3.6.0",
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
   "com.typesafe.akka" %% "akka-cluster" % akkaVersion,
   "com.typesafe.akka" %% "akka-http" % "10.0.6",
