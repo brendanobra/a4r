@@ -1,5 +1,4 @@
-package com.a4r
-import scopt._
+package org.a4r
 
 /**
   * Created by brendan on 6/3/17.
