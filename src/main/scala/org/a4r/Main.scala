@@ -18,7 +18,11 @@ object Main extends App with Logged {
     val config = ConfigFactory.load(appConfig.configFile)
 
     val actorSystem = ActorSystem(appConfig.actorSystemName)
-    DistributedPubSub(actorSystem).mediator ! "foo"
+    /*
+    start pubsub ASAP
+     */
+    DistributedPubSub(actorSystem).mediator
+
     info(s"started in ${actorSystem.startTime}")
 
 
