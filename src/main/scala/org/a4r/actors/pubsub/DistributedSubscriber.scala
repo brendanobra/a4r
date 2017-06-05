@@ -11,18 +11,21 @@ import org.a4r.messages.MessageTopic
   */
 trait DistributedSubscriber extends Actor with Logged {
 
-  def topic:MessageTopic
+  def topics:Seq[MessageTopic]
+
   import akka.cluster.pubsub.DistributedPubSubMediator.Subscribe
   val mediator = DistributedPubSub(context.system).mediator
-  // subscribe to the topic named "content"
-  info(s"--------------- subscribing to topic $topic")
-  mediator ! Subscribe(topic.name, self)
+
+  info(s"subscribing to topics $topics")
+  topics.map(topic => {
+    mediator ! Subscribe(topic.name, self)
+  })
 
   def wrappedReceive:Receive
 
   override def receive: Receive = {
     case ack:SubscribeAck =>
-      info(s"got subscribe ACK: $ack")
+      info(s"Am now subscribed: $ack")
     case msg =>
       wrappedReceive(msg)
   }

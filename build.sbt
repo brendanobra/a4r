@@ -1,4 +1,4 @@
-name := "akka-quickstart-scala"
+name := "a4r"
 
 version := "1.0"
 
@@ -6,7 +6,9 @@ scalaVersion := "2.12.2"
 
 lazy val akkaVersion = "2.5.2"
 
-mainClass := Some("org.a4r.Main")
+mainClass in Compile := Some("org.a4r.ExampleAR4Client")
+
+enablePlugins(JDKPackagerPlugin)
 
 libraryDependencies ++= Seq(
   "com.github.scopt" %% "scopt" % "3.6.0",

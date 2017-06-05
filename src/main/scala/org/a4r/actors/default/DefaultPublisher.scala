@@ -9,11 +9,11 @@ import org.a4r.messages.{DefaultTopic, MessageTopic}
   */
 class DefaultPublisher extends DistributedPublisher{
 
-  def topic = DefaultTopic()
+  def topics = Seq(DefaultTopic())
 
   override def receive: Receive = {
     case msg =>
-      publish("this is a message", topic)
+      publish("this is a message", topics)
   }
 }
 object DefaultPublisher {

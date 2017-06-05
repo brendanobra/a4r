@@ -23,5 +23,11 @@ package object messages {
       name
     }
   }
+  case class OtherDefaultTopic()extends MessageTopic {
+    def name:String = "otherDefault"
+    override def toString() = {
+      name
+    }
+  }
 
 }
